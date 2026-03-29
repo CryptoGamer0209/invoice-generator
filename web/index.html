@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D-Druck Rechnungstool</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>3D-Druck Rechnungstool</h1>
+    <p>Bearbeite die Felder links – die Rechnungsvorschau aktualisiert sich live rechts.</p>
+  </header>
+
+  <main class="layout">
+    <section class="editor">
+      <h2>Rechnungsdaten</h2>
+      <form id="invoice-form">
+        <fieldset>
+          <legend>Meta</legend>
+          <label>Rechnungsnummer <input name="invoice_number" value="2026-0001" required /></label>
+          <label>Rechnungsdatum <input name="issue_date" type="date" value="2026-03-29" required /></label>
+          <label>Leistungsdatum <input name="service_date" type="date" value="2026-03-28" required /></label>
+          <label>Währung <input name="currency" value="EUR" required /></label>
+          <label class="checkbox"><input name="is_kleinunternehmer" type="checkbox" /> Kleinunternehmer (§19 UStG)</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Verkäufer</legend>
+          <label>Name <input name="seller_name" value="Max Muster 3D-Druckservice" required /></label>
+          <label>Straße <input name="seller_street" value="Druckweg 12" required /></label>
+          <label>PLZ <input name="seller_zip" value="10115" required /></label>
+          <label>Stadt <input name="seller_city" value="Berlin" required /></label>
+          <label>Land <input name="seller_country" value="Deutschland" required /></label>
+          <label>USt-IdNr. <input name="seller_vat_id" value="DE123456789" /></label>
+          <label>Steuernummer <input name="seller_tax_number" value="12/345/67890" /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Kunde</legend>
+          <label>Name <input name="buyer_name" value="Kunde GmbH" required /></label>
+          <label>Straße <input name="buyer_street" value="Industriestraße 55" required /></label>
+          <label>PLZ <input name="buyer_zip" value="20095" required /></label>
+          <label>Stadt <input name="buyer_city" value="Hamburg" required /></label>
+          <label>Land <input name="buyer_country" value="Deutschland" required /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Positionen</legend>
+          <div id="line-items"></div>
+          <button type="button" id="add-line">+ Position hinzufügen</button>
+        </fieldset>
+
+        <fieldset>
+          <legend>Zahlung / Notiz</legend>
+          <label>Zahlungsbedingungen
+            <input name="payment_terms" value="Zahlbar innerhalb von 14 Tagen ohne Abzug." />
+          </label>
+          <label>IBAN <input name="payment_iban" value="DE02120300000000202051" /></label>
+          <label>BIC <input name="payment_bic" value="BYLADEM1001" /></label>
+          <label>Notiz <textarea name="note">Vielen Dank für Ihren Auftrag.</textarea></label>
+        </fieldset>
+
+        <div class="actions">
+          <button type="button" id="download-json">JSON herunterladen</button>
+          <button type="button" id="download-html">HTML-Rechnung herunterladen</button>
+          <button type="button" id="download-xml">E-Rechnung XML herunterladen</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="preview">
+      <h2>Live-Rechnungsvorschau</h2>
+      <div id="preview-container"></div>
+    </section>
+  </main>
+
+  <template id="line-template">
+    <div class="line-item">
+      <label>Beschreibung <input data-key="description" value="3D-Druck Gehäuse PLA (schwarz)" required /></label>
+      <label>Menge <input data-key="quantity" type="number" step="0.01" value="1" required /></label>
+      <label>Einheit <input data-key="unit" value="C62" required /></label>
+      <label>Einzelpreis netto <input data-key="unit_price_net" type="number" step="0.01" value="12.50" required /></label>
+      <label>MwSt-Satz % <input data-key="vat_rate" type="number" step="0.01" value="19" required /></label>
+      <button type="button" class="remove-line">Entfernen</button>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

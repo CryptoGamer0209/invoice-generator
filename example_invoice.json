@@ -1,0 +1,45 @@
+{
+  "invoice_number": "2026-0001",
+  "issue_date": "2026-03-29",
+  "service_date": "2026-03-28",
+  "currency": "EUR",
+  "is_kleinunternehmer": false,
+  "seller": {
+    "name": "Max Muster 3D-Druckservice",
+    "street": "Druckweg 12",
+    "zip_code": "10115",
+    "city": "Berlin",
+    "country": "Deutschland",
+    "email": "info@musterdruck.de",
+    "vat_id": "DE123456789",
+    "tax_number": "12/345/67890"
+  },
+  "buyer": {
+    "name": "Kunde GmbH",
+    "street": "Industriestraße 55",
+    "zip_code": "20095",
+    "city": "Hamburg",
+    "country": "Deutschland",
+    "email": "einkauf@kunde.de"
+  },
+  "lines": [
+    {
+      "description": "3D-Druck Gehäuse PLA (schwarz)",
+      "quantity": 10,
+      "unit": "C62",
+      "unit_price_net": 12.50,
+      "vat_rate": 19
+    },
+    {
+      "description": "Konstruktionsanpassung CAD",
+      "quantity": 1,
+      "unit": "HUR",
+      "unit_price_net": 65.00,
+      "vat_rate": 19
+    }
+  ],
+  "payment_terms": "Zahlbar innerhalb von 14 Tagen ohne Abzug.",
+  "payment_iban": "DE02120300000000202051",
+  "payment_bic": "BYLADEM1001",
+  "note": "Vielen Dank für Ihren Auftrag."
+}

@@ -1,0 +1,155 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+header {
+  background: #111827;
+  color: white;
+  padding: 1rem 1.5rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+header p {
+  margin: 0.4rem 0 0;
+  color: #d1d5db;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: start;
+}
+
+.editor,
+.preview {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+fieldset {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 0.3rem;
+}
+
+label {
+  display: grid;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.92rem;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.45rem;
+}
+
+textarea {
+  min-height: 70px;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.line-item {
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 0.7rem;
+  margin-bottom: 0.6rem;
+}
+
+.remove-line {
+  background: #dc2626;
+}
+
+#preview-container {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  min-height: 400px;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #d1d5db;
+  padding: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.invoice-table th {
+  background: #f3f4f6;
+}
+
+.totals {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
